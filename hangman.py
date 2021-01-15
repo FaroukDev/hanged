@@ -37,20 +37,28 @@ Do Voulez vous jouer Y/N
         print potence
 '''
 
-from random_word import RandomWords
+#from random_word import RandomWords
 
-r = RandomWords()
+#r = RandomWords()
 
-r.get_random_word()
-
-print(r.get_random_word())
+#r.get_random_word()
 
 nbr_letter_to_find = 5
 nbr_fail = 0
+mot = "Farouk"
+my_caracter = ""
 
 my_try = input("Welcome to my game find my word ! ahaha : ")
+while nbr_fail < 5 or len(nbr_letter_to_find) != len(mot):
+    while my_try != "":
+        my_try = input("Enter one caracter :")
+        my_try.isalpha()
+        print(my_try)
+        word = mot.split()
+        if my_try in word:
+            print(my_try.index(word))
 
-while nbr_fail < 5 or len(nbr_letter_to_find):
+        
 
 
 
