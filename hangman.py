@@ -37,3 +37,20 @@ Do Voulez vous jouer Y/N
         print potence
 '''
 
+from random_word import RandomWords
+
+r = RandomWords()
+
+r.get_random_word()
+
+print(r.get_random_word())
+
+nbr_letter_to_find = 5
+nbr_fail = 0
+
+my_try = input("Welcome to my game find my word ! ahaha : ")
+
+while nbr_fail < 5 or len(nbr_letter_to_find):
+
+
+
