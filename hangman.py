@@ -36,7 +36,10 @@ Do Voulez vous jouer Y/N
     fonction (nbre d'eche)
         print potence
 '''
-
+f = open("hang.py","r")
+content = f.read()
+print(content)
+f.close()
 #from random_word import RandomWords
 
 #r = RandomWords()
@@ -45,20 +48,24 @@ Do Voulez vous jouer Y/N
 
 nbr_letter_to_find = 5
 nbr_fail = 0
-mot = "Farouk"
+word_to_find = "Farouk"
 my_caracter = ""
 
 my_try = input("Welcome to my game find my word ! ahaha : ")
-while nbr_fail < 5 or len(nbr_letter_to_find) != len(mot):
-    while my_try != "":
+while nbr_fail < 5 or len(nbr_letter_to_find) != len(word_to_find):
+    while my_try == "":
         my_try = input("Enter one caracter :")
         my_try.isalpha()
         print(my_try)
-        word = mot.split()
-        if my_try in word:
-            print(my_try.index(word))
+    for my_try in list(word_to_find):
+        if my_try == word_to_find:
+            print("yes")
+        else:
+            print("no")
+        break
 
-        
+ 
+   
 
 
 
