@@ -64,5 +64,4 @@ stages = [ """
 ]
 
 
-print(stages)
 

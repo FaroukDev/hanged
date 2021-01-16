@@ -36,22 +36,19 @@ Do Voulez vous jouer Y/N
     fonction (nbre d'eche)
         print potence
 '''
-f = open("hang.py","r")
-content = f.read()
-print(content)
-f.close()
+
 #from random_word import RandomWords
 
 #r = RandomWords()
 
 #r.get_random_word()
-
+'''
 nbr_letter_to_find = 5
 nbr_fail = 0
 word_to_find = "Farouk"
 my_caracter = ""
 
-my_try = input("Welcome to my game find my word ! ahaha : ")
+my_try = input("Welcome to my game find my word ! please enter a caracter : ")
 while nbr_fail < 5 or len(nbr_letter_to_find) != len(word_to_find):
     while my_try == "":
         my_try = input("Enter one caracter :")
@@ -64,8 +61,34 @@ while nbr_fail < 5 or len(nbr_letter_to_find) != len(word_to_find):
             print("no")
         break
 
- 
-   
+'''
+f = open("hang.py","r")
+content = f.read()
+print(content)
 
 
+guesses = []
+count = 1
+word_to_find = 'python'
+word = []
 
+while count < 10:
+    guess = input('guess a letter: ')
+    guesses.append(guess)
+    if ''.join(word) == word_to_find:
+        print('you win')
+        break
+    elif len(guess) > 1 and word_to_find == guess:
+        print(word_to_find)
+        print('you win')
+        break
+    else:
+        for char in word_to_find:
+            if char in guesses and len(stages) - 1:
+                word.append(char)
+                print(char)
+            else:
+                print('_')
+        count += 1
+else:
+    print('\nyou lose')
