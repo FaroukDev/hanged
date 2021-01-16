@@ -44,69 +44,52 @@ Do Voulez vous jouer Y/N
 #r = RandomWords()
 
 # r.get_random_word()
-'''
-nbr_letter_to_find = 5
-nbr_fail = 0
-word_to_find = "Farouk"
-my_caracter = ""
 
-my_try = input("Welcome to my game find my word ! please enter a caracter : ")
-while nbr_fail < 5 or len(nbr_letter_to_find) != len(word_to_find):
-    while my_try == "":
-        my_try = input("Enter one caracter :")
-        my_try.isalpha()
-        print(my_try)
-    for my_try in list(word_to_find):
-        if my_try == word_to_find:
-            print("yes")
-        else:
-            print("no")
-        break
 
-'''
+import pendu
 import logging
 import datetime
-
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
 log_format = '%(asctime)s %(filename)s: %(message)s'
 logging.basicConfig(filename="hangman.log", format=log_format,
-                    datefmt='%Y-%m-%d %H:%M:%S' )
+                    datefmt='%Y-%m-%d %H:%M:%S')
 
 logger.info("information message")
- 
 
-f = open("hang.py", "r")
+
+f = open("./pendu/hang.py", "r")
 stages = f.read()
 print(stages)
 
 
 guesses = []
 count = 1
-word_to_find = "python"
+word_to_find = "farouk"
 word = []
 
 while count < 7:
     guess = input('guess a letter: ')
     guesses.append(guess)
     print(guesses)
-    if ''.join(word) == word_to_find:
+    if ''.join(guesses) == word_to_find:
+        print(word)
         print('you win')
         break
-    elif len(word_to_find) == len(guesses):
-        print(word_to_find)
+    elif word == guesses:
         print('you win')
         break
     else:
         for char in word_to_find:
-            if char in guesses:
+            if len(guess) == len(stages) - 1:
                 word.append(char)
                 print(char)
+                print(stages)
             else:
                 print('_')
         count += 1
 else:
     print('\nyou lose')
+print(guesses)
 
-
-
+logging.info("script ended")
