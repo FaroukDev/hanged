@@ -45,7 +45,6 @@ Do Voulez vous jouer Y/N
 
 # r.get_random_word()
 
-
 import pendu
 import logging
 import datetime
@@ -55,12 +54,12 @@ log_format = '%(asctime)s %(filename)s: %(message)s'
 logging.basicConfig(filename="hangman.log", format=log_format,
                     datefmt='%Y-%m-%d %H:%M:%S')
 
-logger.info("information message")
+logger.info("Script Started")
 
 
 f = open("./pendu/hang.py", "r")
 stages = f.read()
-print(stages)
+#print(stages)
 
 
 guesses = []
@@ -73,15 +72,14 @@ while count < 7:
     guesses.append(guess)
     print(guesses)
     if ''.join(guesses) == word_to_find:
-        print(word)
-        print('you win')
+        print('you win you find the right word :',  ''.join(guesses))
         break
     elif word == guesses:
-        print('you win')
+        print('you win  ',  ''.join(guesses))
         break
     else:
         for char in word_to_find:
-            if len(guess) == len(stages) - 1:
+            if len(guess) == len(stages):
                 word.append(char)
                 print(char)
                 print(stages)
@@ -90,6 +88,6 @@ while count < 7:
         count += 1
 else:
     print('\nyou lose')
-print(guesses)
+
 
 logging.info("script ended")
